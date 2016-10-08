@@ -32,7 +32,7 @@ public:
         return data[size-1];
     }
     
-    void Push(int d) { //push a element onto the stack
+    void Push(int d) { //将元素进栈
         
         if (size < MaxSize)
             data[size++] = d;
@@ -40,12 +40,18 @@ public:
             std::cout<<"Error: stack full 满栈\n";
     }
     
-    void Pop() { //pop the element from the stack
-        
+    void Pop() { //出栈        
         if (size == 0)
             std::cout<<"Error: stack empty 空栈\n";
         else
             size--;
+    }
+    
+    void Show() { //遍历栈中元素
+        for (auto &a:data){  //for auto range语句，c++11特性
+            std::cout<<a<<std::endl;
+            if(size--<1) break;
+        }
     }
 };
 

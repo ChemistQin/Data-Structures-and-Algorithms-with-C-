@@ -14,17 +14,15 @@ int main()
 {
     Stack stack;
     
-    stack.Push(30);
-    stack.Push(40);
-    stack.Push(60);
+    stack.Push(8);
+    stack.Push(16);
+    stack.Push(32);
     std::cout<<"Top:"<<stack.Top()<<std::endl;
     
     stack.Pop();
     std::cout<<"Top:"<<stack.Top()<<std::endl;
 
-    stack.Pop();
-    stack.Pop();
-    std::cout<<"Top:"<<stack.Top()<<std::endl;
+    stack.Show();
     
     return 0;
 }
