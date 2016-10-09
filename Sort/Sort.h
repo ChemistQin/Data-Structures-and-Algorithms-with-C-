@@ -43,8 +43,7 @@
 using namespace std;
 
 //冒泡排序
-void BubbleSort(vector<int> &nums)
-{
+void BubbleSort(vector<int> &nums){
     for (int i = 0; i < nums.size() - 1; i++) {
         for (int j = 0; j < nums.size() - i - 1; j++) {
             if (nums[j] > nums[j + 1]) {
@@ -57,8 +56,7 @@ void BubbleSort(vector<int> &nums)
 }
 
 //插入排序，主要思想在把数组从左到右分为有序区和无序区。从无序区中取出元素插入有序区中，与扑克牌类似。
-void InsertSort(vector<int> &nums)
-{
+void InsertSort(vector<int> &nums){
     for (int i = 1; i < nums.size(); i++) {  //刚开始时，默认a[0]为有序
         for (int j = i; j > 0; j--) {
             if (nums[j] < nums[j - 1]) {     //无序区从a[j]开始，用其与有序区元素比较，若小则交换
@@ -70,5 +68,20 @@ void InsertSort(vector<int> &nums)
     }
 }
 
+//希尔排序
+void ShellSort(vector<int> &nums){
+    for (int gap = nums.size() >> 1; gap > 0; gap >>= 1) { // >>1 位运算，将数的二进制表示右移一位，相当于除以二
+        for (int i = gap; i < nums.size(); i++) {
+            int temp = nums[i];
+            
+            int j = i - gap;
+            for (; j >= 0 && nums[j] > temp; j -= gap) {
+                nums[j + gap] = nums[j];
+            }
+            
+            nums[j + gap] = temp;
+        }
+    }
+}
 
 #endif /* Sort_h */
