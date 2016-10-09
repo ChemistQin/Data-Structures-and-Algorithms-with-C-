@@ -56,12 +56,12 @@ void BubbleSort(vector<int> &nums)
     }
 }
 
-//插入排序
+//插入排序，主要思想在把数组从左到右分为有序区和无序区。从无序区中取出元素插入有序区中，与扑克牌类似。
 void InsertSort(vector<int> &nums)
 {
-    for (int i = 1; i < nums.size(); i++) { 
+    for (int i = 1; i < nums.size(); i++) {  //刚开始时，默认a[0]为有序
         for (int j = i; j > 0; j--) {
-            if (nums[j] < nums[j - 1]) {
+            if (nums[j] < nums[j - 1]) {     //无序区从a[j]开始，用其与有序区元素比较，若小则交换
                 int temp = nums[j];
                 nums[j] = nums[j - 1];
                 nums[j - 1] = temp;
