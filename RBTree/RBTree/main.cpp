@@ -7,25 +7,25 @@
 //
 
 #include <iostream>
+#include <vector>
 #include "RBTree.h"
 
 using namespace std;
 
 int main()
 {
-    int a[]= {10, 40, 30, 60, 90, 70, 20, 50, 80};
-    int check_insert=0;    // "插入"动作的检测开关(0，关闭；1，打开)
-    int check_remove=0;    // "删除"动作的检测开关(0，关闭；1，打开)
-    int i;
-    int ilen = (sizeof(a)) / (sizeof(a[0])) ;
+    vector<int> a = {1024,128,65,256,32,16,8,4,2,1,0};
+    int check_insert = 0;    // "插入"动作的检测开关(0，关闭；1，打开)
+    int check_remove = 0;    // "删除"动作的检测开关(0，关闭；1，打开)
+    
     RBTree<int>* tree=new RBTree<int>();
     
     cout << "== 原始数据: ";
-    for(i=0; i<ilen; i++)
-        cout << a[i] <<" ";
+    for(auto element : a)
+        cout << element <<" ";
     cout << endl;
     
-    for(i=0; i<ilen; i++)
+    for(int i = 0; i < a.size(); i++)
     {
         tree->insert(a[i]);
         // 设置check_insert=1,测试"添加函数"
@@ -57,7 +57,7 @@ int main()
     // 设置check_remove=1,测试"删除函数"
     if(check_remove)
     {
-        for(i=0; i<ilen; i++)
+        for(int i = 0; i < a.size(); i++)
         {
             tree->remove(a[i]);
             

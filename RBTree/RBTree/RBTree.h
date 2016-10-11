@@ -546,7 +546,7 @@ void RBTree<T>::insert(RBTNode<T>* &root, RBTNode<T>* node)
 template <class T>
 void RBTree<T>::insert(T key)
 {
-    RBTNode<T> *z=nullptr;
+    RBTNode<T> *z = nullptr;
     
     // 如果新建结点失败，则返回。
     if ((z=new RBTNode<T>(key,BLACK,nullptr,nullptr,nullptr)) == nullptr)
@@ -769,9 +769,7 @@ void RBTree<T>::remove(T key)
         remove(mRoot, node);
 }
 
-/*
- * 销毁红黑树
- */
+//destroy
 template <class T>
 void RBTree<T>::destroy(RBTNode<T>* &tree)
 {
@@ -806,7 +804,7 @@ void RBTree<T>::print(RBTNode<T>* tree, T key, int direction)
 {
     if(tree != nullptr)
     {
-        if(direction==0)    // tree是根节点
+        if(direction == 0)    // tree是根节点
             cout << setw(2) << tree->key << "(B) is root" << endl;
         else                // tree是分支节点
             cout << setw(2) << tree->key <<  (rb_is_red(tree)?"(R)":"(B)") << " is " << setw(2) << key << "'s "  << setw(12) << (direction==1?"right child" : "left child") << endl;
@@ -823,4 +821,6 @@ void RBTree<T>::print()
         print(mRoot, mRoot->key, 0);
 }
 
-#endif /* RBTree_h */
+#endif 
+
+/* RBTree_h */
