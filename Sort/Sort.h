@@ -84,4 +84,23 @@ void ShellSort(vector<int> &nums){
     }
 }
 
+//快速排序
+void QuickSort(vector<int> &nums, int b , int e){
+    if (b <e - 1){
+        int lb = b , rb = e - 1;
+        while (lb < rb) {
+            while (nums[rb] >= nums[b] && lb < rb) {
+                rb--;
+            }
+            while (nums[lb] <= nums[b] && lb < rb) {
+                lb++;
+            }
+            swap(nums[lb] , nums[rb]);
+        }
+        swap(nums[b] , nums[lb]);
+        QuickSort(nums,b,lb);
+        QuickSort(nums,lb + 1, e);
+    }
+}
+
 #endif /* Sort_h */
