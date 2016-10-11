@@ -1,4 +1,4 @@
-# 数据结构与算法的练习
+# 数据结构与算法（C++实现）
 在macOS下编译，用的是clang。    
 
   
@@ -15,3 +15,10 @@ warning: 'auto' type specifier is a C++11 extension
 ### 直接初始化vector:
 error: non-aggregate type 'vector<int>' cannot be initialized
       with an initializer list
+
+
+
+   
+    
+  
+  
