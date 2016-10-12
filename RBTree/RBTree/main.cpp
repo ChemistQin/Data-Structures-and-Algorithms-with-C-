@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-    vector<int> a = {1024,128,65,256,32,16,8,4,2,1,0};
+    vector<int> a = {1024,128,64,256,32,16,8,4,2,1,0,512,2048};
     int check_insert = 0;    // "插入"动作的检测开关(0，关闭；1，打开)
     int check_remove = 0;    // "删除"动作的检测开关(0，关闭；1，打开)
     
