@@ -4,9 +4,11 @@
   
 		Apple LLVM version 8.0.0 (clang-800.0.38)    
 
-    Target: x86_64-apple-darwin16.0.0
+                Target: x86_64-apple-darwin16.0.0
    
-			Thread model: posix
+		Thread model: posix  
+		
+		clang++ -std=c++11 -stdlib=libc++ main.cpp
 
 ## 代码使用一些C++11语句时，可能会有warning或者error。
 ###   使用for auto:
