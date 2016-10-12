@@ -9,6 +9,9 @@
 #ifndef BSTree_h
 #define BSTree_h
 
+
+using namespace std;
+
 class BinaryTree
 {
 private:
@@ -53,7 +56,6 @@ BinaryTree::BinaryTree()
 {
     root = nullptr;
 }
-
 
 
 bool BinaryTree::InsertNode(pNode * cuRoot, int data, pNode self)

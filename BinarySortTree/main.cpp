@@ -7,7 +7,10 @@
 //
 
 #include <iostream>
+#include <iomanip>
 #include "BSTree.h"
+
+using namespace std;
 
 int main()
 {
@@ -23,7 +26,7 @@ int main()
     std::cout<<std::endl;
     bTree.SearchKey(64);
     std::cout<<std::endl;
-    
+ 
     return 0;
 
 }
