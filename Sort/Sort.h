@@ -103,4 +103,33 @@ void QuickSort(vector<int> &nums, int b , int e){
     }
 }
 
+
+
+//最大堆调整
+void MaxHeapify(vector<int> &nums , int b , int e){
+    int dad = b;
+    int son = dad * 2 + 1;
+    while (son <= e) {
+        if(son + 1 <= e && nums[son] < nums[son + 1])
+            son++;
+        if (nums[dad] > nums[son])
+            return;
+        else{
+            swap(nums[dad] , nums[son]);
+            dad = son;
+            son = dad * 2 + 1;
+        }
+    }
+}
+
+//堆排序
+void HeapSort(vector<int> &nums){
+    for (int i = nums.size()/2 - 1 ; i >= 0 ; i--)
+        MaxHeapify(nums,i,nums.size() - 1);
+    for (int i = nums.size() - 1; i > 0 ; i--) {
+        swap(nums[0],nums[i]);
+        MaxHeapify(nums,0,i - 1);
+    }
+}
+
 #endif /* Sort_h */
