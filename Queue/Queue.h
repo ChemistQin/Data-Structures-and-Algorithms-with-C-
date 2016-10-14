@@ -8,9 +8,9 @@
 //  用数组实现的队列
 #ifndef Queue_h
 #define Queue_h
-#define MaxSize 100
 
-using namespace std;
+
+
 
 template<class T> class Queue{
 public:
@@ -21,6 +21,7 @@ public:
     T front();
     T pop();
     void show();
+    int const MaxSize = 100;
     int size();
     int isEmpty();
     
