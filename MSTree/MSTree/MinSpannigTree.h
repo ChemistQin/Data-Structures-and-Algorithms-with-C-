@@ -17,18 +17,18 @@
 
 using namespace std;
 
-int const V = 5 ;
+int const V = 5 ; //图的容量设为常数
 
 int minKey(vector<int> &key, vector<bool> &mstSet)
 {
     int min = INT_MAX; //INT_MAX defined in limits.h
-    int minIndex;
+    int minIndex = 0;
 
     for (int v = 0; v < V; v++)
         if (mstSet[v] == false && key[v] < min)
             min = key[v], minIndex = v;
     
-    return minIndex;
+    return minIndex; //当前连接到树的节点
 }
 
 // 打印MST
@@ -37,16 +37,22 @@ void printMST(vector<int> &parent, int n, int graph[V][V])
     printf("Edge   Weight\n");
     for (int i = 1; i < V; i++)
         printf("%d - %d    %d \n", parent[i], i, graph[i][parent[i]]);
+    
+    //see the value of parents
+    //for (auto a : parent)
+    //   cout << a << endl;
+    //print -1,0,1,0,1
 }
 
 // Prim算法
 // 从任意根节点开始，直至树覆盖V
 
+
 void PrimMST(int graph[V][V])
 {
     vector<int> parent(V); // 保持MST信息
     vector<int> key(V,INT_MAX);   // 所有顶点的代价值,初始为无穷大
-    vector<bool> mstSet(V,false);  //当前包含在MST中点的集合
+    vector<bool> mstSet(V,false);  //当前包含在MST中点的集合，true == connected ; false == unconnected
     
     key[0] = 0;     //
     parent[0] = -1; // 第一个作为树的根。
@@ -54,8 +60,8 @@ void PrimMST(int graph[V][V])
     //  MST 有V的顶点
     for (int count = 0; count < V-1; count++)
     {
-        int u = minKey(key, mstSet);
-        // 添加u到 MST Set
+        int u = minKey(key, mstSet);//index
+        // 添加u到 MST Set 表示u已连接
         mstSet[u] = true;
         //更新和u相连的顶点的代价
         for (int v = 0; v < V; v++)
