@@ -42,6 +42,13 @@
 
 using namespace std;
 
+
+void PrintVector(vector<int> &nums){
+    for(auto &v : nums)
+        cout << v <<" " ;
+    cout<<endl;
+}
+
 //冒泡排序
 void BubbleSort(vector<int> &nums){
     for (int i = 0; i < nums.size() - 1; i++) {
@@ -129,6 +136,36 @@ void HeapSort(vector<int> &nums){
     for (int i = nums.size() - 1; i > 0 ; i--) {
         swap(nums[0],nums[i]);
         MaxHeapify(nums,0,i - 1);
+    }
+}
+
+//归并排序
+void MergeVector(vector<int> &nums , vector<int> &temp , int b , int m , int e){
+    int lb = b, rb = m, tb = b;
+    while (lb != m && rb != e)
+        if (nums[lb] < nums[rb])
+            temp[tb++] = nums[lb++];
+        else
+            temp[tb++] = nums[rb++];
+    
+    while (lb < m)
+        temp[tb++] = nums[lb++];
+    
+    while (rb < e)
+        temp[tb++] = nums[rb++];
+    
+    for (int i = b;i < e; i++)
+        nums[i] = temp[i];
+    
+}
+
+//b = 0, e = nums.size().
+void MergeSort(vector<int> &nums , vector<int> &temp , int b , int e){
+    int m = (b + e) / 2;
+    if(m != b){
+        MergeSort(nums , temp , b , m);
+        MergeSort(nums , temp , m , e);
+        MergeVector(nums , temp , b , m , e);
     }
 }
 
