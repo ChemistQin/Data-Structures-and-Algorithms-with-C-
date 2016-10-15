@@ -18,6 +18,8 @@ int main()
     	stack.Push(i);
     }
     
-    cout << stack.Top();
+    cout << stack.Top() <<endl;
+    stack.Pop();
+    stack.PrintStack();
     return 0;
 }

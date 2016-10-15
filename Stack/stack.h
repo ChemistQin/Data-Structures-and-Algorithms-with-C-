@@ -19,7 +19,7 @@ private:
     vector<T> c;
 public:
     void Push(const T& key);
-    void Pop();
+    bool Pop();
     T Top();
     bool Empty() const;
     void PrintStack();
@@ -29,7 +29,7 @@ template<class T> void Stack<T>::Push(const T& key){
     c.push_back(key);
 }
 
-template<class T> void Stack<T>::Pop(){
+template<class T> bool Stack<T>::Pop(){
     if(!Empty())
         c.pop_back();
     else cout << "Error : Stack is empty!" ;
@@ -43,6 +43,12 @@ template<class T> T Stack<T>::Top(){
 
 template<class T> bool Stack<T>::Empty() const{
     return c.empty();
+}
+
+template<class T> void Stack<T>::PrintStack(){
+    for(auto v : c )
+        cout << v <<" " ;
+    cout <<endl;
 }
 
 #endif
