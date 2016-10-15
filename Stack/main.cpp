@@ -8,21 +8,16 @@
 
 #include<iostream>
 #include"stack.h"
-
+using namespace std;
 
 int main()
 {
-    Stack stack;
+    Stack <int> stack;
+    for (int i = 0; i < 5; ++i)
+    {
+    	stack.Push(i);
+    }
     
-    stack.Push(8);
-    stack.Push(16);
-    stack.Push(32);
-    std::cout<<"Top:"<<stack.Top()<<std::endl;
-    
-    stack.Pop();
-    std::cout<<"Top:"<<stack.Top()<<std::endl;
-
-    stack.Show();
-    
+    cout << stack.Top();
     return 0;
 }
