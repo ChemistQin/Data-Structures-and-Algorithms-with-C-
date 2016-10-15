@@ -21,7 +21,7 @@ int const V = 5 ;
 
 int minKey(vector<int> &key, vector<bool> &mstSet)
 {
-    int min = INT_MAX;
+    int min = INT_MAX; //INT_MAX defined in limits.h
     int minIndex;
 
     for (int v = 0; v < V; v++)
@@ -40,12 +40,14 @@ void printMST(vector<int> &parent, int n, int graph[V][V])
 }
 
 // Prim算法
+// 从任意根节点开始，直至树覆盖V
+
 void PrimMST(int graph[V][V])
 {
     vector<int> parent(V); // 保持MST信息
     vector<int> key(V,INT_MAX);   // 所有顶点的代价值,初始为无穷大
     vector<bool> mstSet(V,false);  //当前包含在MST中点的集合
-        
+    
     key[0] = 0;     //
     parent[0] = -1; // 第一个作为树的根。
     
