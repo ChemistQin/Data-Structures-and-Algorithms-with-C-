@@ -39,23 +39,37 @@ class HashItem
 
 
 
-class HashMap
-{
+class HashMap{
     private:
+    
     int const MaxSize = 256;
     HashItem **table;
 
-    //std::vector<std::shared_ptr<HashTable> > table(MaxSize, nullptr);
     public:
-    HashMap()
-    {
-        table = new HashItem *[MaxSize];
+//构造函数，先把table指向的指针置空
+    HashMap(){
+        table = new HashItem *[MaxSize];   //取MaxSize的空间
         for (int i = 0; i < MaxSize; i++)
         {
             table[i] = nullptr;
         }
     }
     
+    
+//插入元素
+    void put(int key,int value)
+    {
+        int hash = (key % MaxSize);
+        while (table[hash] != nullptr && table[hash]->getKey() != key)
+            hash = (hash + 1) % MaxSize;
+        
+        if (table[hash] != nullptr)
+            delete table[hash];
+        
+        table[hash] = new HashItem(key,value);
+    }
+
+//获取元素
     int get(int key)
     {
         int hash = (key % MaxSize);
@@ -63,7 +77,7 @@ class HashMap
         {
             hash = (hash + 1) % MaxSize;
         }
-        if (table[hash] == nullptr)
+        if (table[hash] == nullptr) //hash为空指针，返回-1
         {
             std::cout << "Not found \n";
             return -1;
@@ -74,20 +88,7 @@ class HashMap
         }
     }
     
-    void put(int key,int value)
-    {
-        int hash = (key % MaxSize);
-        while (table[hash] != nullptr && table[hash]->getKey() != key)
-        {
-            hash = (hash + 1) % MaxSize;
-        }
-        if (table[hash] != nullptr)
-        {
-            delete table[hash];
-        }
-        table[hash] = new HashItem(key,value);
-    }
-    
+//析构函数
     ~HashMap()
     {
         for (int i = 0; i < MaxSize; i++)

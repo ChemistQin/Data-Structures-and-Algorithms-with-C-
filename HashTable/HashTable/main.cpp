@@ -18,10 +18,13 @@ int main(int argc, const char * argv[]) {
     
     hashmap.put(1,2);
     hashmap.put(2,4);
+    hashmap.put(257, 128);
     hashmap.put(3,256);
     
-    cout<<hashmap.get(4)<<endl;
-    cout<<hashmap.get(3)<<endl;
+    cout<<hashmap.get(257)<<endl;
+    cout<<hashmap.get(1)<<endl;
+    cout<<hashmap.get(2)<<endl;
+    
 
     return 0;
 }
