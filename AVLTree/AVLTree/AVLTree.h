@@ -17,7 +17,7 @@ using namespace std;
 
 
 template <class T>
-class AVLTreeNode{
+class AVLTreeNode{        //AVL节点
     public:
     T key;                // 关键字(键值)
     int height;         // 高度
@@ -29,9 +29,9 @@ class AVLTreeNode{
 };
 
 template <class T>
-class AVLTree {
+class AVLTree {            //AVL树
     private:
-    AVLTreeNode<T> *mRoot;    // 根结点
+    AVLTreeNode<T> *mRoot;    // 根结点，隐藏
     
     public:
     AVLTree();
@@ -118,6 +118,7 @@ class AVLTree {
 
 /*
  * 构造函数
+ * 创建 mRoot 根节点
  */
 template <class T>
 AVLTree<T>::AVLTree():mRoot(nullptr)
@@ -126,6 +127,7 @@ AVLTree<T>::AVLTree():mRoot(nullptr)
 
 /*
  * 析构函数
+ * 销毁 mRoot
  */
 template <class T>
 AVLTree<T>::~AVLTree()
@@ -135,6 +137,7 @@ AVLTree<T>::~AVLTree()
 
 /*
  * 获取树的高度
+ * height 值在插入时计数
  */
 template <class T>
 int AVLTree<T>::height(AVLTreeNode<T>* tree)
