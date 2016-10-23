@@ -5,6 +5,8 @@
 //  Created by 覃思平 on 2016/10/15.
 //  Copyright © 2016年 覃思平. All rights reserved.
 //
+//  最小路径生成树
+//
 
 #ifndef MinSpannigTree_h
 #define MinSpannigTree_h
@@ -16,27 +18,22 @@
 
 using namespace std;
 
-//最小路径生成树
 
 
-//边
+// 边
 struct Edge
 {
-    int src, dest, weight; //起点。终点。路径长度
+    int src, dest, weight; //起点，终点，路径长度
 };
 
-// a structure to represent a connected, undirected and weighted graph
+// 图
 struct Graph
 {
     int V, E;
-    
-    // graph is represented as an array of edges. Since the graph is
-    // undirected, the edge from src to dest is also edge from dest
-    // to src. Both are counted as 1 edge here.
     struct Edge* edge;
 };
 
-// Creates a graph with V vertices and E edges
+// 创建图. V个节点，E条边
 struct Graph* createGraph(int V, int E)
 {
     struct Graph* graph = (struct Graph*) malloc( sizeof(struct Graph) );
@@ -48,26 +45,24 @@ struct Graph* createGraph(int V, int E)
     return graph;
 }
 
-// A structure to represent a subset for union-find
+// 子集
 struct subset
 {
     int parent;
     int rank;
 };
 
-// A utility function to find set of an element i
-// (uses path compression technique)
+// 查找
 int find(struct subset subsets[], int i)
 {
-    // find root and make root as parent of i (path compression)
+    // 查找root并设置root 为 i 的 parent
     if (subsets[i].parent != i)
     subsets[i].parent = find(subsets, subsets[i].parent);
     
     return subsets[i].parent;
 }
 
-// A function that does union of two sets of x and y
-// (uses union by rank)
+// Union 用于连接x-y
 void Union(struct subset subsets[], int x, int y)
 {
     int xroot = find(subsets, x);
@@ -89,8 +84,7 @@ void Union(struct subset subsets[], int x, int y)
     }
 }
 
-// Compare two edges according to their weights.
-// Used in qsort() for sorting an array of edges
+// 对边进行快速排序
 int myComp(const void* a, const void* b)
 {
     struct Edge* a1 = (struct Edge*)a;
@@ -98,35 +92,33 @@ int myComp(const void* a, const void* b)
     return a1->weight > b1->weight;
 }
 
-// The main function to construct MST using Kruskal's algorithm
+// Kruskal 算法
+// 以weight来排序，逐渐连接。
+// 若x,y已连接，进入下一条边
 void KruskalMST(struct Graph* graph)
 {
     int V = graph->V;
-    struct Edge result[V]; // Tnis will store the resultant MST
-    int e = 0; // An index variable, used for result[]
-    int i = 0; // An index variable, used for sorted edges
+    struct Edge result[V]; // 保存结果
+    int e = 0; // result[] 的索引
+    int i = 0; // edges 的索引
     
-    // Step 1: Sort all the edges in non-decreasing order of their weight
-    // If we are not allowed to change the given graph, we can create a copy of
-    // array of edges
+    // 第一步  对所有边进行升序排序    （当图无法改动时，创建一个新的数组来进行存储
     qsort(graph->edge, graph->E, sizeof(graph->edge[0]), myComp);
     
-    // Allocate memory for creating V ssubsets
+    // 创建 V subsets
     struct subset *subsets =
     (struct subset*) malloc( V * sizeof(struct subset) );
     
-    // Create V subsets with single elements
+    // 初始化 V subsets
     for (int v = 0; v < V; ++v)
     {
         subsets[v].parent = v;
         subsets[v].rank = 0;
     }
     
-    // Number of edges to be taken is equal to V-1
     while (e < V - 1)
     {
-        // Step 2: Pick the smallest edge. And increment the index
-        // for next iteration
+        // 第二步  找出最小边. i++
         struct Edge next_edge = graph->edge[i++];
         
         int x = find(subsets, next_edge.src);
@@ -142,13 +134,15 @@ void KruskalMST(struct Graph* graph)
         // Else discard the next_edge
     }
     
-    // print the contents of result[] to display the built MST
+    // 打印result[],显示最小路径生成树
     printf("Following are the edges in the constructed MST\n");
     for (i = 0; i < e; ++i)
     printf("%d -- %d == %d\n", result[i].src, result[i].dest,
            result[i].weight);
     return;
 }
+
+
 
 // Driver program to test above functions
 
