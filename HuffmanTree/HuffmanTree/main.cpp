@@ -40,5 +40,5 @@ int main(int argc, const char * argv[]) {
     // 销毁二叉树
     tree->destroy();
 
-
+    return 0;
 }
