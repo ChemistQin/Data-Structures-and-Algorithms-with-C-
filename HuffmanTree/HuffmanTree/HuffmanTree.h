@@ -13,6 +13,7 @@
 #ifndef HuffmanTree_h
 #define HuffmanTree_h
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -54,7 +55,7 @@ class MinHeap {
     // 获取最小节点
     HuffmanNode<T>* dumpFromMinimum();
     // 创建最小堆
-    void create(T a[], int size);
+    void create(vector<T> &a , int size);
     // 销毁最小堆
     void destroy();
 };
@@ -201,7 +202,7 @@ HuffmanNode<T>* MinHeap<T>::dumpFromMinimum()
  *     size -- 数组大小
  */
 template <class T>
-void MinHeap<T>::create(T a[], int size)
+void MinHeap<T>::create(vector<T> &a, int size)
 {
     int i;
     
@@ -251,7 +252,7 @@ class Huffman {
     void postOrder();
     
     // 创建Huffman树
-    void create(T a[], int size);
+    void create(vector<T> &a , int size);
     // 销毁Huffman树
     void destroy();
     
@@ -360,7 +361,7 @@ void Huffman<T>::postOrder()
  *     Huffman树的根节点
  */
 template <class T>
-void Huffman<T>::create(T a[], int size)
+void Huffman<T>::create(vector<T> &a, int size)
 {
     int i;
     HuffmanNode<T> *left, *right, *parent;

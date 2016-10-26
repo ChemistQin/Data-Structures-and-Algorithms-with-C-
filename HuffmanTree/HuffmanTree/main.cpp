@@ -7,21 +7,22 @@
 //
 
 #include <iostream>
+#include <vector>
 #include "HuffmanTree.h"
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     
+    vector<int> vec = {2,4,64,32,516,1024,512};
     
-    int a[]= {5,6,8,7,15};
-    int i, ilen = sizeof(a) / (sizeof(a[0])) ;
+    int ilen = vec.size();
     Huffman<int>* tree=new Huffman<int>();
     
-    cout << "== 添加数组: ";
-    for(i=0; i<ilen; i++)
-    cout << a[i] <<" ";
+    cout << "== 添加序列: ";
+    for(auto v : vec)
+    cout << v <<" ";
     
-    tree->create(a, ilen);
+    tree->create(vec, ilen);
     
     cout << "\n== 前序遍历: ";
     tree->preOrder();
