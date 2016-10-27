@@ -12,27 +12,14 @@ using namespace std;
 
 int main()
 {
-    int tmp=0;
-    Queue<int> *queue = new Queue<int>();
+      Queue <int> queue;
+    for (int i = 0; i < 5; ++i)
+    {
+        queue.Push(i);
+    }
     
-    queue->add(2);
-    queue->add(4);
-    queue->add(8); //入队
-    
-    
-    tmp = queue->pop(); //出队
-    cout<<"出队元素："<<tmp<<endl;
-    
-    
-    tmp = queue->front();
-    cout<<"队列头前元素为："<<tmp<<endl; //显示当前队头
-    
-    queue->add(16);
-    
-    cout<<"队列是为空？"<<queue->isEmpty()<<endl;
-    cout<<"当前元素个数："<<queue->size()<<endl;
-    
-    queue->show();
-    
+    cout << queue.Top() <<endl;
+    queue.Pop();
+    queue.PrintQueue();
     return 0;
 }

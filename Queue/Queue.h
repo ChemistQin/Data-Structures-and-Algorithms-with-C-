@@ -8,100 +8,55 @@
 //  用数组实现的队列
 #ifndef Queue_h
 #define Queue_h
+#include <vector>
+
+using namespace std;
 
 
 
-
-template<class T> class Queue{
-public:
-    Queue(); //constructor
-    ~Queue(); //destructor
-    
-    void add(T t);
-    T front();
-    T pop();
-    void show();
-    int const MaxSize = 100;
-    int size();
-    int isEmpty();
-    
+template<class T>
+class Queue {
 private:
-    T *arr;
-    int count;
+    vector<T> c;
+public:
+    void Push(const T& key);
+    bool Pop();
+    T Top();
+    bool Empty() const;
+    void PrintQueue();
 };
 
-
 template<class T>
-Queue<T>::Queue()  //构造函数，用于创建队列
-{
-    arr = new T[MaxSize];  //creat a queue ,default size == 100
-    if (!arr)
-    {
-        cout<<"无法创建队列!"<<endl;
-    }
+void Queue<T>::Push(const T& key){
+    c.push_back(key);
 }
 
-
 template<class T>
-Queue<T>::~Queue()  //析构函数，用于销毁队列
-{
-    if (arr)
-    {
-        delete[] arr;
-        arr = NULL;
-    }
+bool Queue<T>::Pop(){
+    if(!Empty())
+        c.erase(c.begin());
+    else cout << "Error : Queue is empty!" ;
 }
 
-
 template<class T>
-void Queue<T>::add(T t) //入队 add a new element to the rear of the queue
-{
-    arr[count++] = t;
+T Queue<T>::Top(){
+    if(!Empty())
+        return c.back();
+    else cout <<"Error : Queue is empty!" ;
 }
 
-
 template<class T>
-T Queue<T>::front()
-{
-    return arr[0]; //返回队头元素 return the front of the queue
+bool Queue<T>::Empty() const{
+    return c.empty();
 }
 
-
-
 template<class T>
-T Queue<T>::pop() //出队
-{
-    int i = 0;;
-    T ret = arr[0];
-    
-    count--;
-    while (i++<count)
-        arr[i-1] = arr[i];
-    
-    return ret; //返回出队元素
+void Queue<T>::PrintQueue(){
+    for(auto v : c )
+        cout << v <<" " ;
+    cout << endl;
 }
 
-
-template<class T>
-void Queue<T>::show() //打印队列元素，从队尾开始
-{
-    while (count)
-        cout << arr[--count] <<endl;
-}
-
-
-template<class T>
-int Queue<T>::size() //队列大小
-{
-    return count;
-}
-
-
-template<class T>
-int Queue<T>::isEmpty() //是否为空
-{
-    return count==0;
-}
 
 
 #endif
