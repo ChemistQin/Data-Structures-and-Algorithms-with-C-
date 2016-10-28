@@ -23,6 +23,9 @@ int main() {
     PrintVector(vec);
     MergeSort(vec,vec2,0,vec.size());
     PrintVector(vec);
+    random_shuffle(vec.begin(),vec.end()); 
+    BogoSort(vec);
+    PrintVector(vec);
 
     return 0;
 }

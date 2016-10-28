@@ -169,4 +169,19 @@ void MergeSort(vector<int> &nums , vector<int> &temp , int b , int e){
     }
 }
 
+//猴子排序
+bool InOrder(vector<int> &nums){
+    for(int i = 0 ; i < nums.size() ; i++ ){
+        if(nums[i] > nums[i+1])
+            return false;
+    }
+    return true;
+}
+
+void BogoSort(vector<int> &nums){
+    while (!InOrder(nums)) {
+        random_shuffle(nums.begin(),nums.end());
+    }
+}
+
 #endif /* Sort_h */
