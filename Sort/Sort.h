@@ -7,6 +7,10 @@
 //
 //  Sorting algorithm
 //  几种排序算法稳定的排序
+//  最近看CS:APP 循环中减少不必要的函数调用可以增加效率，比如vec.size()这样的基本为const的值
+//  直接将其赋值给一个变量，减少反复调用size().
+
+
 /*冒泡排序（bubble sort）— O(n2)
   插入排序（insertion sort）—O(n2)
   鸡尾酒排序（cocktail sort）—O(n2)
@@ -51,8 +55,9 @@ void PrintVector(vector<int> &nums){
 
 //冒泡排序
 void BubbleSort(vector<int> &nums){
-    for (int i = 0; i < nums.size() - 1; i++) {
-        for (int j = 0; j < nums.size() - i - 1; j++) {
+    int numlens = nums.size();
+    for (int i = 0; i < numlens - 1; i++) {
+        for (int j = 0; j < numlens - i - 1; j++) {
             if (nums[j] > nums[j + 1]) {
                 int temp = nums[j];
                 nums[j] = nums[j + 1];
@@ -64,7 +69,8 @@ void BubbleSort(vector<int> &nums){
 
 //插入排序，主要思想在把数组从左到右分为有序区和无序区。从无序区中取出元素插入有序区中，与扑克牌类似。
 void InsertSort(vector<int> &nums){
-    for (int i = 1; i < nums.size(); i++) {  //刚开始时，默认a[0]为有序
+    int numlens = nums.size();
+    for (int i = 1; i < numlens; i++) {  //刚开始时，默认a[0]为有序
         for (int j = i; j > 0; j--) {
             if (nums[j] < nums[j - 1]) {     //无序区从a[j]开始，用其与有序区元素比较，若小则交换
                 int temp = nums[j];
@@ -77,8 +83,9 @@ void InsertSort(vector<int> &nums){
 
 //希尔排序
 void ShellSort(vector<int> &nums){
-    for (int gap = nums.size() >> 1; gap > 0; gap >>= 1) { // >>1 位运算，将数的二进制表示右移一位，相当于除以二
-        for (int i = gap; i < nums.size(); i++) {
+    int numlens = nums.size();
+    for (int gap = numlens >> 1; gap > 0; gap >>= 1) { // >>1 位运算，将数的二进制表示右移一位，相当于除以二
+        for (int i = gap; i < numlens; i++) {
             int temp = nums[i];
             
             int j = i - gap;
@@ -131,9 +138,10 @@ void MaxHeapify(vector<int> &nums , int b , int e){
 
 //堆排序
 void HeapSort(vector<int> &nums){
-    for (int i = nums.size()/2 - 1 ; i >= 0 ; i--)
-        MaxHeapify(nums,i,nums.size() - 1);
-    for (int i = nums.size() - 1; i > 0 ; i--) {
+    int numlens = nums.size();
+    for (int i = numlens/2 - 1 ; i >= 0 ; i--)
+        MaxHeapify(nums,i,numlens - 1);
+    for (int i = numlens - 1; i > 0 ; i--) {
         swap(nums[0],nums[i]);
         MaxHeapify(nums,0,i - 1);
     }
@@ -159,7 +167,7 @@ void MergeVector(vector<int> &nums , vector<int> &temp , int b , int m , int e){
     
 }
 
-//b = 0, e = nums.size().
+//b = 0, e = numlens.
 void MergeSort(vector<int> &nums , vector<int> &temp , int b , int e){
     int m = (b + e) / 2;
     if(m != b){
@@ -171,7 +179,8 @@ void MergeSort(vector<int> &nums , vector<int> &temp , int b , int e){
 
 //猴子排序
 bool InOrder(vector<int> &nums){
-    for(int i = 0 ; i < nums.size() ; i++ ){
+    int numlens = nums.size();
+    for(int i = 0 ; i < numlens ; i++ ){
         if(nums[i] > nums[i+1])
             return false;
     }
