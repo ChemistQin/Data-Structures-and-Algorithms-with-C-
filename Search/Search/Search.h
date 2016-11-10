@@ -36,6 +36,8 @@ void BinarySearch(vector<int> &vec , int key){
         else
             low = mid + 1;
     }
+    if(vec[mid] != key)
+    cout << key <<" Not Found \n" ;
 }
 
 #endif /* Search_h */
