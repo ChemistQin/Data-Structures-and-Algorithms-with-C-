@@ -35,16 +35,14 @@ public:
     DoubleLink();
     ~DoubleLink();
     
-    int Size();
-    int IsEmpty();
-    
     T Get(int index);
     
+    int Size();
+    int IsEmpty();
     int Insert(int index, T t);
     int InsertFirst(T t);
     int AppendLast(T t);
     int Delete(int index);
-    
     int PrintList();
     
 private:
@@ -107,7 +105,7 @@ DoubleNode<T>* DoubleLink<T>::GetNode(int index)
     }
     
     // 正向查找
-    if (index <= count/2)
+    if (index <= count >>1 )
     {
         int i = 0;
         DoubleNode<T>* pindex = phead->next;

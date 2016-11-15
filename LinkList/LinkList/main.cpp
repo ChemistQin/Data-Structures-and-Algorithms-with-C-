@@ -27,9 +27,9 @@ int main()
     pdlink->Insert(1, 1024);
     
     // 双向链表是否为空
-    cout << "is_empty()=" << pdlink->IsEmpty() <<endl;
+    cout << "The linklist is empty? " << pdlink->IsEmpty() <<endl;
     // 双向链表的大小
-    cout << "size()=" << pdlink->Size() <<endl;
+    cout << "Size of linklist is " << pdlink->Size() <<endl;
     
     // 打印双向链表中的全部数据
     pdlink->PrintList();
