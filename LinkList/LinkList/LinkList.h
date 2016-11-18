@@ -100,7 +100,7 @@ DoubleNode<T>* DoubleLink<T>::GetNode(int index)
     // 判断参数有效性
     if (index < 0 || index >= count)
     {
-        cout << "get node failed! the index in out of bound!" << endl;
+        cout << "查找失败：索引越界" << endl;
         return nullptr;
     }
     
@@ -131,6 +131,12 @@ DoubleNode<T>* DoubleLink<T>::GetNode(int index)
 template<class T>
 T DoubleLink<T>::Get(int index)
 {
+    if (index < 0 || index >= count)
+    {
+        cout << "查找失败：索引越界" << endl;
+        return 0;
+    }
+    else
     return GetNode(index)->value;
 }
 

@@ -21,17 +21,19 @@ int main()
     // 创建双向链表
     DoubleLink<int>* pdlink = new DoubleLink<int>();
     
-    pdlink->Insert(0, 2);        // 将 20 插入到第一个位置
-    pdlink->AppendLast(128);    // 将 10 追加到链表末尾
-    pdlink->InsertFirst(256);    // 将 30 插入到第一个位置
+    pdlink->Insert(0, 2);
+    pdlink->AppendLast(128);
+    pdlink->InsertFirst(256);
     pdlink->Insert(1, 1024);
     
+    pdlink->Get(6);
+    cout << "2nd:" << pdlink->Get(2) << endl;
     // 双向链表是否为空
     cout << "The linklist is empty? " << pdlink->IsEmpty() <<endl;
     // 双向链表的大小
     cout << "Size of linklist is " << pdlink->Size() <<endl;
     
-    // 打印双向链表中的全部数据
+    // 遍历链表
     pdlink->PrintList();
     return 0;
 
