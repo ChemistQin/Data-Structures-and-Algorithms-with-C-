@@ -15,7 +15,7 @@
 
 int main(int argc, const char * argv[]) {
     
-    Complex c1(3,4) , c2(5,-10);
+    Complex c1(3,4) , c2(3,5);
     
     cout<<"c1 = ";
     c1.display();
@@ -34,6 +34,11 @@ int main(int argc, const char * argv[]) {
     
     cout<<"c1 / c2 = ";
     (c1/c2).display();
+    
+    if(c1 != c2){
+        cout << "c1 != c2 \n";
+    }
+    else cout << "c1 == c2 \n";
 
     return 0;
 }

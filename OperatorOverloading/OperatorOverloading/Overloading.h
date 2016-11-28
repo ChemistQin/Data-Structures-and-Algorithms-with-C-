@@ -25,6 +25,8 @@ public:
     Complex operator - (Complex &cpx);
     Complex operator * (Complex &cpx);
     Complex operator / (Complex &cpx);
+    bool operator == (Complex &cpx);
+    bool operator != (Complex &cpx);
     void display();
 private:
     double real;
@@ -58,6 +60,16 @@ Complex Complex::operator / (Complex &cpx){
     c.real = (real * cpx.real + imag * cpx.imag)/(cpx.real * cpx.real + cpx.imag * cpx.imag);
     c.imag = (imag * cpx.real - real * cpx.imag)/(cpx.real * cpx.real + cpx.imag * cpx.imag);
     return c;
+}
+
+bool Complex::operator == (Complex &cpx){
+    if((real == cpx.real) && (imag == cpx.imag))
+        return true;
+    return false;
+}
+
+bool Complex::operator != (Complex &cpx){
+    return !(*this == cpx);
 }
 
 void Complex::display( )
