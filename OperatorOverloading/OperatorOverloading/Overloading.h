@@ -8,6 +8,8 @@
 
 #ifndef Overloading_h
 #define Overloading_h
+#include <math.h>
+
 
 using namespace std;
 
@@ -21,19 +23,23 @@ public:
         real = r;
         imag = i;
     }
-    Complex operator + (Complex &cpx);//声明重载运算符的函数
-    Complex operator - (Complex &cpx);
-    Complex operator * (Complex &cpx);
-    Complex operator / (Complex &cpx);
-    bool operator == (Complex &cpx);
-    bool operator != (Complex &cpx);
-    void display();
+    Complex operator + (Complex &cpx);//重载复数加法
+    Complex operator - (Complex &cpx);//重载复数减法
+    Complex operator * (Complex &cpx);//重载复数乘法
+    Complex operator / (Complex &cpx);//重载复数除法
+    bool operator == (Complex &cpx);//重载复数等于
+    bool operator != (Complex &cpx);//重载复数不等
+                                    //复数之间不存在大于或小于，故不对>=,<=,>,<进行重载
+    
+    Complex conjugate();//共轭复数
+    double absval();//复数的模
+    void display();//显示复数
 private:
     double real;
     double imag;
 };
 
-Complex Complex::operator + (Complex &cpx) //定义重载运算符的函数
+Complex Complex::operator + (Complex &cpx)
 {
     Complex c;
     c.real = real + cpx.real;
@@ -71,6 +77,19 @@ bool Complex::operator == (Complex &cpx){
 bool Complex::operator != (Complex &cpx){
     return !(*this == cpx);
 }
+
+Complex Complex::conjugate(){
+    Complex c;
+    c.real = real;
+    c.imag = -imag;
+    return c;
+}
+
+
+double Complex::absval(){
+    return sqrt((real * real + imag * imag));
+}
+
 
 void Complex::display( )
 {

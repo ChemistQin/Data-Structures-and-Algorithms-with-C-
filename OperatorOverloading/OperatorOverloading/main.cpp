@@ -39,6 +39,11 @@ int main(int argc, const char * argv[]) {
         cout << "c1 != c2 \n";
     }
     else cout << "c1 == c2 \n";
+    Complex c3;
+    c3 = c1.conjugate();
+    cout << c1.absval() <<endl;
+    c3.display();
+    (c1*c3).display();
 
     return 0;
 }
