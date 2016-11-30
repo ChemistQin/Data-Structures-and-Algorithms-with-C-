@@ -27,8 +27,13 @@ public:
     Complex operator - (Complex &cpx);//重载复数减法
     Complex operator * (Complex &cpx);//重载复数乘法
     Complex operator / (Complex &cpx);//重载复数除法
+    Complex operator += (Complex &cpx);
+    Complex operator -= (Complex &cpx);
+    Complex operator *= (Complex &cpx);
+    Complex operator /= (Complex &cpx);
     bool operator == (Complex &cpx);//重载复数等于
     bool operator != (Complex &cpx);//重载复数不等
+    
                                     //复数之间不存在大于或小于，故不对>=,<=,>,<进行重载
     
     Complex conjugate();//共轭复数
@@ -68,6 +73,30 @@ Complex Complex::operator / (Complex &cpx){
     return c;
 }
 
+Complex Complex::operator += (Complex &cpx){
+    *this = *this + cpx;
+    return *this;
+}
+
+Complex Complex::operator -= (Complex &cpx){
+    *this = *this - cpx;
+    return *this;
+    return *this;
+}
+
+Complex Complex::operator *= (Complex &cpx){
+    *this = *this * cpx;
+    return *this;
+}
+
+Complex Complex::operator /= (Complex &cpx){
+    *this = *this / cpx;
+    return *this;
+    return *this;
+}
+
+
+
 bool Complex::operator == (Complex &cpx){
     if((real == cpx.real) && (imag == cpx.imag))
         return true;
@@ -77,6 +106,7 @@ bool Complex::operator == (Complex &cpx){
 bool Complex::operator != (Complex &cpx){
     return !(*this == cpx);
 }
+
 
 Complex Complex::conjugate(){
     Complex c;
