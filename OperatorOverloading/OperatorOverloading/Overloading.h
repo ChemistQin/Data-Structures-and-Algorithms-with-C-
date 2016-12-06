@@ -81,7 +81,6 @@ Complex Complex::operator += (Complex &cpx){
 Complex Complex::operator -= (Complex &cpx){
     *this = *this - cpx;
     return *this;
-    return *this;
 }
 
 Complex Complex::operator *= (Complex &cpx){
@@ -91,7 +90,6 @@ Complex Complex::operator *= (Complex &cpx){
 
 Complex Complex::operator /= (Complex &cpx){
     *this = *this / cpx;
-    return *this;
     return *this;
 }
 
