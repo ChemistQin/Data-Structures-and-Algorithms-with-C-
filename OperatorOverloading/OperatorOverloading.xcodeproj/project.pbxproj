@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		DEE373C81DE9D3E5006DE55B /* OperatorOverloading */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OperatorOverloading; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE373CB1DE9D3E5006DE55B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		DEE373D21DE9D442006DE55B /* Overloading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Overloading.h; sourceTree = "<group>"; };
+		DEE373D21DE9D442006DE55B /* Complex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Complex.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				DEE373CB1DE9D3E5006DE55B /* main.cpp */,
-				DEE373D21DE9D442006DE55B /* Overloading.h */,
+				DEE373D21DE9D442006DE55B /* Complex.h */,
 			);
 			path = OperatorOverloading;
 			sourceTree = "<group>";
@@ -248,6 +248,7 @@
 				DEE373D11DE9D3E5006DE55B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
