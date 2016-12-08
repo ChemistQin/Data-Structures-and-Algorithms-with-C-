@@ -13,22 +13,27 @@
 using namespace std;
 
 class Sales_data{
+    
+    friend Sales_data add(const Sales_data& , const Sales_data&);
+    friend istream &read(istream &is , Sales_data &item);
+    friend ostream &print(ostream &os , Sales_data &item);
+    friend bool operator == (const Sales_data &lhs , const Sales_data &rhs);
+    friend bool operator != (const Sales_data &lhs , const Sales_data &rhs);
+
 public:
     Sales_data() = default;
-    
-    string bookNo;
-    unsigned unit_sold = 0;
-    double revenue = 0.0;
-    
     Sales_data(const string &s): bookNo(s){}
     Sales_data(const string &s , unsigned n , double p):
                      bookNo(s) , unit_sold(n) , revenue(p * n){}
     Sales_data(istream &is);
-    
-    string isbn();
-    double avg_price() const;
     Sales_data& combine(const Sales_data&);
+    string isbn() const { return bookNo; };
+    double avg_price() const { return unit_sold ? revenue/unit_sold : 0;};
     
+private:
+    unsigned unit_sold = 0;
+    double revenue = 0.0;
+    string bookNo;
 };
 
 istream &read(istream &is , Sales_data &item){
@@ -51,6 +56,17 @@ Sales_data& Sales_data::combine(const Sales_data& rhs){
     revenue += rhs.revenue;
     return *this;
 }
+
+bool operator == (const Sales_data &lhs , const Sales_data &rhs){
+    return lhs.isbn() == rhs.isbn() &&
+    lhs.unit_sold == rhs.unit_sold &&
+    lhs.revenue == rhs.revenue;
+}
+
+bool operator != (const Sales_data &lhs , const Sales_data &rhs){
+    return !(lhs == rhs);
+}
+
 
 
 #endif /* Sales_data_h */
