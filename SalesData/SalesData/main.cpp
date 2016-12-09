@@ -22,9 +22,14 @@ int main(int argc, const char * argv[]) {
     print(cout, item3) << endl;
     
     
-    cout << "Input ISBN,Sold units,price \n";
-    Sales_data item4(cin);//Sales_data(istream &is);
-    print(cout, item4) << endl;
+    //cout << "Input ISBN,Sold units,price \n";
+    //Sales_data item4(cin);//Sales_data(istream &is);
+    //print(cout, item4) << endl;
+    
+    if(item1 == item2)
+        cout << " item1 == item2 \n";
+    else cout << " item1 != item2 \n";
+    
     
     return 0;
 }

@@ -21,11 +21,18 @@ class Sales_data{
     friend bool operator != (const Sales_data &lhs , const Sales_data &rhs);
 
 public:
-    Sales_data() = default;
-    Sales_data(const string &s): bookNo(s){}
+    //Sales_data() = default;
+    //Sales_data(const string &s): bookNo(s){}
     Sales_data(const string &s , unsigned n , double p):
                      bookNo(s) , unit_sold(n) , revenue(p * n){}
-    Sales_data(istream &is);
+    //Sales_data(istream &is);
+    
+    //委托构造函数  delegating constructor
+    Sales_data(): Sales_data("No ISBN" , 0 , 0){}
+    Sales_data(const string &s): Sales_data(s , 0 , 0){}
+    Sales_data(istream &is): Sales_data(){ read(is, *this);}
+    ~Sales_data() = default;
+    
     Sales_data& combine(const Sales_data&);
     string isbn() const { return bookNo; };
     double avg_price() const { return unit_sold ? revenue/unit_sold : 0;};
@@ -47,16 +54,13 @@ ostream &print(ostream &os , Sales_data &item){
     return os;
 }
 
-Sales_data::Sales_data(istream &is){
-    read(is , *this);
-}
-
 Sales_data& Sales_data::combine(const Sales_data& rhs){
     unit_sold += rhs.unit_sold;
     revenue += rhs.revenue;
     return *this;
 }
 
+// overloading operator
 bool operator == (const Sales_data &lhs , const Sales_data &rhs){
     return lhs.isbn() == rhs.isbn() &&
     lhs.unit_sold == rhs.unit_sold &&

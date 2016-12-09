@@ -41,11 +41,11 @@ void DecConverter(int dec){
     vector<string> binbit = {"0000","0001","0010","0011","0100","0101","0110","0111",
                              "1000","1001","1010","1011","1100","1101","1110","1111"};
     
-    cout <<"\n Bin = (";
+    cout <<"\n Bin = 0b";
     for(auto a : hex3){
-        cout <<binbit[a] <<" ";
+        cout <<binbit[a] ;
     }
-    cout <<")2" << endl;
+    cout << endl;
     
 }
 
