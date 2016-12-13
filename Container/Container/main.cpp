@@ -26,6 +26,37 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     
     list<string> a = {"Naive" , "Angry" , "Excited"};
-    auto t1 = a.begin();
+ 
+    
+    vector<int> v1 = { 1, 3, 5, 7, 9, 12 };
+    vector<int> v2 = { 1, 3, 9 };
+    vector<int> v3 = { 1, 3, 5, 7 };
+    vector<int> v4 = { 1, 3, 5, 7, 9, 12 };
+    
+    bool b1 = (v1 == v2);
+    bool b2 = (v1 == v4);
+    bool b3 = (v4 > v3);
+    cout << b1 << b2 << b3 <<endl;
+/*
+    string word;
+    cout << "\n 输入字符串 ctrl + d 结束 \n";
+    while(cin >> word)
+        a.push_back(word);
+    
+    
+    for(auto s : a)
+        cout << s <<" " ;
+*/
+    list<int> lst = {0,1,2,3,4,5,6,7,8,9};
+    auto it = lst.begin();
+    while (it != lst.end())
+        if (*it % 2) // if the element is odd
+            it = lst.erase(it); // erase this element
+        else
+            ++it;
+    for(auto i : lst)
+        cout << i <<" ";
+    
+    
     return 0;
 }
