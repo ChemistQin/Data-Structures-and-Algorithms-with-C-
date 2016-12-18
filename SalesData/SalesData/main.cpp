@@ -25,11 +25,14 @@ int main(int argc, const char * argv[]) {
     //cout << "Input ISBN,Sold units,price \n";
     //Sales_data item4(cin);//Sales_data(istream &is);
     //print(cout, item4) << endl;
-    
+/*
     if(item1 == item2)
         cout << " item1 == item2 \n";
     else cout << " item1 != item2 \n";
+*/
+    item1 = item3;
     
+    print(cout, item1);
     
     return 0;
 }

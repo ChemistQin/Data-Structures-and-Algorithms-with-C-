@@ -19,7 +19,8 @@ class Sales_data{
     friend ostream &print(ostream &os , Sales_data &item);
     friend bool operator == (const Sales_data &lhs , const Sales_data &rhs);
     friend bool operator != (const Sales_data &lhs , const Sales_data &rhs);
-
+    
+    
 public:
     //Sales_data() = default;
     //Sales_data(const string &s): bookNo(s){}
@@ -31,11 +32,13 @@ public:
     Sales_data(): Sales_data("No ISBN" , 0 , 0){}
     Sales_data(const string &s): Sales_data(s , 0 , 0){}
     Sales_data(istream &is): Sales_data(){ read(is, *this);}
+    
     ~Sales_data() = default;
     
     Sales_data& combine(const Sales_data&);
     string isbn() const { return bookNo; };
     double avg_price() const { return unit_sold ? revenue/unit_sold : 0;};
+    Sales_data& operator = (const Sales_data &rhs);
     
 private:
     unsigned unit_sold = 0;
@@ -71,6 +74,12 @@ bool operator != (const Sales_data &lhs , const Sales_data &rhs){
     return !(lhs == rhs);
 }
 
+Sales_data& Sales_data:: operator = (const Sales_data &rhs){
+    bookNo = rhs.bookNo;
+    unit_sold  = rhs.unit_sold;
+    revenue = rhs.revenue;
+    return *this;
+}
 
 
 #endif /* Sales_data_h */

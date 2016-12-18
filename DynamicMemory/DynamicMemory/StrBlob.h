@@ -25,9 +25,10 @@ public:
     void push_back(const string &t);
     void pop_back(); // element access
     string& front();
-    string& back(); private:
-    shared_ptr<vector<string>> data;// throws msg if data[i] isn't valid
+    string& back();
     
+private:
+    shared_ptr<vector<string>> data;// throws msg if data[i] isn't valid
     void check(size_type i, const string &msg) const;
 };
 

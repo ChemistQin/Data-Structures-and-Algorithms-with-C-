@@ -25,6 +25,10 @@ int main(int argc, const char * argv[]) {
     shared_ptr<string> p6 = make_shared<string>();
     
  */
+    StrBlob b1;
+
+    
+    
     
     
     return 0;
