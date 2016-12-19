@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
 */
     item1 = item3;
     
-    print(cout, item1);
+    print(cout, item1 + item3);
     
     return 0;
 }

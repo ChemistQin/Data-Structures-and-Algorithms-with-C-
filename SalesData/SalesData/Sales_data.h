@@ -8,7 +8,7 @@
 
 #ifndef Sales_data_h
 #define Sales_data_h
-#include<string>
+#include <string>
 
 using namespace std;
 
@@ -19,7 +19,6 @@ class Sales_data{
     friend ostream &print(ostream &os , Sales_data &item);
     friend bool operator == (const Sales_data &lhs , const Sales_data &rhs);
     friend bool operator != (const Sales_data &lhs , const Sales_data &rhs);
-    
     
 public:
     //Sales_data() = default;
@@ -39,6 +38,7 @@ public:
     string isbn() const { return bookNo; };
     double avg_price() const { return unit_sold ? revenue/unit_sold : 0;};
     Sales_data& operator = (const Sales_data &rhs);
+    Sales_data& operator + (const Sales_data &rhs);
     
 private:
     unsigned unit_sold = 0;
@@ -81,5 +81,9 @@ Sales_data& Sales_data:: operator = (const Sales_data &rhs){
     return *this;
 }
 
-
+Sales_data& Sales_data:: operator + ( const Sales_data &rhs){
+    unit_sold  += rhs.unit_sold;
+    revenue += rhs.revenue;
+    return *this;
+}
 #endif /* Sales_data_h */
