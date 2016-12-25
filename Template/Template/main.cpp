@@ -7,9 +7,14 @@
 //
 
 #include <iostream>
+#include "Template.h"
+#include <vector>
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    vector<int> v1 = {1,2,3};
+    vector<int> v2 = {1,2,4};
+    
+    cout << compare(v1, v2) <<endl;
+    
     return 0;
 }
