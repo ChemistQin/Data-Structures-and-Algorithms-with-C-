@@ -20,6 +20,6 @@ int main(int argc, const char * argv[]) {
     
     cout << compare(v1, v2) <<endl;
     cout << compare(s1, s2) <<endl;
-    
+    cout << compare("naive", "simple") <<endl;
     return 0;
 }
