@@ -117,7 +117,7 @@ template <class T>
 void MinHeap<T>::filterUp(int start)
 {
     int c = start;			// 当前节点(current)的位置
-    int p = (c-1)/2;		// 父(parent)结点的位置
+    int p = (c - 1)/2;		// 父(parent)结点的位置
     HuffmanNode<T> tmp = mHeap[c];		// 当前节点(current)
     
     while(c > 0)
@@ -128,7 +128,7 @@ void MinHeap<T>::filterUp(int start)
         {
             mHeap[c] = mHeap[p];
             c = p;
-            p = (p-1)/2;
+            p = (p - 1)/2;
         }
     }
     mHeap[c] = tmp;
@@ -187,8 +187,8 @@ HuffmanNode<T>* MinHeap<T>::dumpFromMinimum()
     // 将"最小节点的全部数据"复制给node
     *node = mHeap[0];
     
-    swapNode(0, mSize-1);				// 交换"最小节点"和"最后一个节点"
-    filterDown(0, mSize-2);	// 将mHeap[0...mSize-2]构造成一个最小堆
+    swapNode(0, mSize - 1);				// 交换"最小节点"和"最后一个节点"
+    filterDown(0, mSize - 2);	// 将mHeap[0...mSize-2]构造成一个最小堆
     mSize--;
     
     return node;
@@ -212,7 +212,7 @@ void MinHeap<T>::create(vector<T> &a, int size)
     mHeap = new HuffmanNode<T>[size];
     
     // 初始化数组
-    for(i=0; i<size; i++)
+    for(i = 0; i < size; i++)
     {
         mHeap[i].key = a[i];
         mHeap[i].parent = mHeap[i].left = mHeap[i].right = nullptr;
@@ -436,7 +436,7 @@ void Huffman<T>::print(HuffmanNode<T>* tree, T key, int direction)
 {
     if(tree != nullptr)
     {
-        if(direction==0)	// tree是根节点
+        if(direction == 0)	// tree是根节点
         cout << setw(2) << tree->key << " is root" << endl;
         else				// tree是分支节点
         cout << setw(2) << tree->key << " is " << setw(2) << key << "'s "  << setw(12) << (direction==1?"right child" : "left child") << endl;
