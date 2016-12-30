@@ -10,6 +10,7 @@
 #ifndef DirectedGraph_h
 #define DirectedGraph_h
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
