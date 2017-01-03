@@ -19,9 +19,9 @@ warning: 'auto' type specifier is a C++11 extension
 ```
 
 
-    - 直接初始化vector:
+    -    直接初始化vector:
 ```c++
--error: non-aggregate type 'vector<int>' cannot be initialized with an initializer list
+error: non-aggregate type 'vector<int>' cannot be initialized with an initializer list
 ```
 
 
