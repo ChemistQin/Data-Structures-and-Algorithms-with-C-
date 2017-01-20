@@ -20,7 +20,9 @@ int main(int argc, const char * argv[]) {
         {'D', 'C'},
         {'E', 'B'},
         {'E', 'D'},
-        {'F', 'G'}};
+        {'F', 'F'},
+        {'G', 'G'}
+    };
     int vlen = vexs.size();
     int elen = sizeof(edges)/sizeof(edges[0]);
     MatrixDG* pG;
