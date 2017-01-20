@@ -21,7 +21,6 @@ int main(int argc, const char * argv[]) {
         {'E', 'B'},
         {'E', 'D'},
         {'F', 'F'},
-        {'G', 'G'}
     };
     int vlen = vexs.size();
     int elen = sizeof(edges)/sizeof(edges[0]);
@@ -33,5 +32,7 @@ int main(int argc, const char * argv[]) {
     pG = new MatrixDG(vexs, vlen, edges, elen);
     
     pG->print();   // 打印图
+    pG->DFS();     // 深度优先遍历
+    pG->BFS();     // 广度优先遍历
     return 0;
 }
