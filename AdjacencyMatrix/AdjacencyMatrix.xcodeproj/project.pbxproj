@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DE3C069B1E35075F0039182E /* UnDirectedGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnDirectedGraph.h; sourceTree = "<group>"; };
 		DED8D94B1E1562B000DB3503 /* AdjacencyMatrix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdjacencyMatrix; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED8D94E1E1562B000DB3503 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DED8D9551E15637100DB3503 /* DirectedGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectedGraph.h; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 			children = (
 				DED8D94E1E1562B000DB3503 /* main.cpp */,
 				DED8D9551E15637100DB3503 /* DirectedGraph.h */,
+				DE3C069B1E35075F0039182E /* UnDirectedGraph.h */,
 			);
 			path = AdjacencyMatrix;
 			sourceTree = "<group>";
@@ -248,6 +250,7 @@
 				DED8D9541E1562B000DB3503 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
