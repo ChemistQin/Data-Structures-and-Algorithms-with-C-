@@ -25,7 +25,7 @@ error: non-aggregate type 'vector<int>' cannot be initialized with an initialize
 
 
 
-- 即将迎来大学最后两门考试。
+
 ```
 我看到了我的爱恋
  I see my love;
